@@ -1,0 +1,16 @@
+{
+  "name": "myreactapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "pushd client && npm run lint && popd && pushd server && npm run lint",
+    "test": "pushd client && npm run test && popd && pushd server && npm run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "husky": "^7.0.2"
+  }
+}
