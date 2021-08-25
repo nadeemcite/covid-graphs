@@ -1,0 +1,14 @@
+version: "3"
+
+services: 
+  covid-graphs-fe:
+    build:
+      context: ./client
+    ports:
+      - 3000:3000
+
+  covid-graphs-be:
+    build:
+      context: ./server
+    ports:
+      - 3001:3000
