@@ -5,6 +5,7 @@ jobs:
   build:
     docker:
       - image: cimg/node:15.0.1-browsers
+    working_directory: ~/app
     steps:
       - browser-tools/install-browser-tools
       - checkout
@@ -39,9 +40,19 @@ jobs:
           key: dependency-cache-server-{{ checksum "server/package-lock.json" }}
           paths:
             - ./server/node_modules
+      - checkout:
+          path: ~/app/client
       - run:
-          name: lint
-          command: /bin/bash npm run lint 
+          name: client-lint
+          command: npm run lint 
       - run:
-          name: test
-          command: /bin/bash npm run test 
+          name: client-test
+          command: npm run test 
+      - checkout:
+          path: ~/app/server
+      - run:
+          name: server-lint
+          command: npm run lint 
+      - run:
+          name: server-test
+          command: npm run test 
