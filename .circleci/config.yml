@@ -48,7 +48,7 @@ jobs:
           command: npm --prefix ./client run test
       - run:
           name: server-lint
-          command: npm --prefix ./client run lint 
+          command: npm --prefix ./server run lint 
       - run:
           name: server-test
-          command: npm --prefix ./client run test 
+          command: npm --prefix ./server run test 
